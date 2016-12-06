@@ -1,0 +1,387 @@
+<!DOCTYPE Html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jemar Macaraeg Jr.</title>
+  <!--<link rel="stylesheet" href="NONE.css"> <!--MainCSS-->
+  <script src="jquery-3.1.1.js"></script>  <!--JQuery-->
+  <script src="jquery.fullPage.min.js"></script> <!--FullPage-->
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="jquery.fullPage.css"> <!--FullPage-->
+  <link rel="shortcut icon" href="logos/NameLogo.png"/> <!--Tab Icon-->
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'> <!--Lato Font-->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'> <!--Source Sans Font-->
+</head>
+
+<script type="text/javascript"> //Type Effect
+var TxtType = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = ' ';
+                this.tick();
+                this.isDeleting = false;
+            };
+        
+            TxtType.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+        
+                if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+        
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        
+                var that = this;
+                var delta = 200 - Math.random() * 100;
+        
+                if (this.isDeleting) { delta /= 2; }
+        
+                if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+                }
+        
+                setTimeout(function() {
+                that.tick();
+                }, delta);
+            };
+        
+            window.onload = function() {
+                var elements = document.getElementsByClassName('typewrite');
+                for (var i=0; i<elements.length; i++) {
+                    var toRotate = elements[i].getAttribute('data-type');
+                    var period = elements[i].getAttribute('data-period');
+                    if (toRotate) {
+                      new TxtType(elements[i], JSON.parse(toRotate), period);
+                    }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+                document.body.appendChild(css);
+            };
+</script>
+
+<script type="text/javascript">
+/*global abouthoverimg*/
+/*global portfoliohoverimg*/
+/*global contacthoverimg*/
+ function about_default() {
+        abouthoverimg.style.backgroundImage = 'url(icons/about.png)';
+    }
+ function about_hover() {
+        abouthoverimg.style.backgroundImage = 'url(icons/abouthover.png)';
+    }
+ function portfolio_default() {
+        portfoliohoverimg.style.backgroundImage = 'url(icons/portfolio.png)';
+    }
+ function portfolio_hover() {
+        portfoliohoverimg.style.backgroundImage = 'url(icons/portfoliohover.png)';
+    }
+ function contact_default() {
+        contacthoverimg.style.backgroundImage = 'url(icons/contact.png)';
+    }
+ function contact_hover() {
+        contacthoverimg.style.backgroundImage = 'url(icons/contacthover.png)';
+    }
+</script>
+
+<style type="text/css">
+/* ##################################Home Section################################## */
+#homesection {
+    background-color: black;
+    position:relative;
+    min-width: 100%; 
+    min-height: 100%;
+    display:inline-block;
+    margin: auto;
+}
+#homebackground {
+    padding-bottom: 100%%;
+}
+#homelogo {
+    position: absolute; 
+    margin-top: -17.1875em; 
+    margin-left: 9.375em; 
+}
+#homelogo img {
+    opacity: .7; 
+}
+.centered {
+    width: 32%;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    margin-top: -6.25em; 
+    margin-left:-15.625em; 
+} 
+.vid {
+    border-collapse: collapse;
+    padding:0; 
+    margin:0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}  
+/* ##################################About Section################################## */
+#aboutsection {
+    width: 100%; 
+    height: 100%;
+    background-color: #3498db;
+    position:relative;
+    text-align: center;
+    display:inline-block;
+    margin: auto;
+}
+#aboutpharagraph {
+    display:inline-block;
+    width: 60%;
+}
+/* ##################################Portfolio Section################################## */
+.portfolio-title {
+    font-weight: bold;
+}
+#portfoliosection {
+    background-color: #34495e;
+    position:relative;
+    width: 100%; 
+    height: 100%;
+    display:inline-block;
+    margin: auto;
+}
+#portfoliocontentbox {
+    margin-left: 25%;
+    margin-top: 10%;
+}
+#portfoliosection span:hover {
+    color:  #FFD700;
+}
+.portfolio-container {
+    float: left;
+    margin-right: 2%;
+}
+.portfolio-container img {
+    width:12.5em;
+    height:12.5em;
+}
+@media screen and (max-width: 700px) {
+}
+/* ##################################Contact Section################################## */
+#contactsection {
+    background-color: #c0392b;
+    position:relative;
+    width: 100%; 
+    height: 100%;
+    display:inline-block;
+    margin: auto;
+}
+.sociallinks {
+    display:inline-block;
+}
+</style>
+
+<body>
+    <div id="fullpage">
+<!--#######################################################################################################-->
+<!-- 
+Notes:
+SVG Image https://css-tricks.com/using-svg/
+If SVG no work: <img src="image.svg" onerror="this.onerror=null; this.src='image.png'">
+FUCK PX GO EM: http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/
+
+Learn:
+http://www.w3schools.com/css/css_attribute_selectors.asp
+http://www.w3schools.com/css/css_pseudo_elements.asp
+http://www.w3schools.com/css/css_pseudo_classes.asp
+
+<script type="text/javascript">
+    var videos = ['16zfqqi5.mp4','8ctt4p17.mp4','506afru2.mp4']; //var videos = ['16zfqqi5.mp4','8ctt4p17.mp4','506afru2.mp4'];
+    var index=Math.floor(Math.random() * videos.length);
+    var html= '<video class="vid blur fade" autobuffer data-autoplay preload="metadata" muted loop>\n<source data-src="https://2.sendvid.com/'+videos[index]+'"/>\n</video>';
+document.write(html);
+</script>
+
+<img class="vid blur fade" src="images/city2.jpg">
+-->
+        <div class="section">
+            <div id="homesection" data-anchor="homepage">
+                <div id="homebackground" class="fade">
+                    <video class="vid blur" autobuffer data-autoplay preload="auto" muted loop>
+                        <source data-src="videos/cityvid.mp4"/>
+                    </video>
+                </div>
+
+                <div class="centered fade">
+                    <div id="homelogo">
+                        <img src="logos/NameLogo.png" style="width:15.3125em; height:15.625em;">
+                    </div>
+                    <hr/>
+                        <h1>Jemar<span style="font-weight: 400;"><br>Macaraeg</span></h1>
+                        <h2><span class="typewrite" data-period="2000" data-type='[ "Student &middot; Programmer &middot; Entrepreneur", "Mentor &middot; Seeker &middot; Risk-taker", "Autodidact &middot; Individualist &middot; Capitalist" ]'><span class="wrap"></span>
+                        </span>
+                        </h2>
+                    <hr/>
+                </div>
+
+                <div class="navpos fade">
+                    <div id="navbar">
+                        <a href="#aboutpage">
+                            <div class="icon" id="abouthoverimg" onmouseover="about_hover()" onmouseout="about_default()"></div>
+                            <p id="abouthovertext" onmouseover="about_hover()" onmouseout="about_default()">About</p></a>
+                        <a href="#portfoliopage">
+                            <div class="icon" id="portfoliohoverimg" onmouseover="portfolio_hover()" onmouseout="portfolio_default()"></div>
+                            <p id="portfoliohovertext" onmouseover="portfolio_hover()" onmouseout="portfolio_default()">Portfolio</p></a>
+                        <a href="#contactpage">
+                            <div class="icon" id="contacthoverimg" onmouseover="contact_hover()" onmouseout="contact_default()"></div>
+                            <p id="contacthovertext" onmouseover="contact_hover()" onmouseout="contact_default()">Contact</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--#######################################################################################################-->
+        <div class="section">
+            <div id="aboutsection" data-anchor="aboutpage">
+                <h1>About Me</h1>
+                <div position: absolute; left: 50%; top: 50%>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Google_Camera_Icon.svg/2000px-Google_Camera_Icon.svg.png" width="450px" height="450px">
+                </div>
+                <div id="aboutpharagraph">
+                    <h2>dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</h2>
+                </div>
+            </div>
+        </div>
+<!--#######################################################################################################-->
+        <div class="section">
+            <div id="portfoliosection" data-anchor="portfoliopage">
+                <h1>Portfolio</h1>
+                <div id="portfoliocontentbox">
+                    <div class="portfolio-container">
+                        <div class="portfolio-img"><img src="images/python.png"></div>
+                        <h2 class="portfolio-title">Python Projects</h2>
+                        <p><a href="https://repl.it/EIqI/261" target="_blank">★ Halloween Adventure</a></p>
+                        <p><a href="https://repl.it/ET4A/6" target="_blank">★ Ebay Profit Caculator</a></p>
+                        <p><a href="https://repl.it/E0Jp/2" target="_blank">• Rock Paper Sissors</a></p>
+                    </div>
+
+                    <div class="portfolio-container">
+                        <div class="portfolio-img"><img src="images/steam.png"></div>
+                        <h2 class="portfolio-title">Steam Mods</h2>
+                        <p><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=394617437" target="_blank">★ Capture+</a></p>
+                        <p><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=402274275" target="_blank">★ ResourceBuildings+</a></p>
+                        <p><a href="http://steamcommunity.com/sharedfiles/filedetails/?id=409733688" target="_blank">• Dynamic Improvements</a></p>
+                    </div>
+
+                    <div class="portfolio-container">
+                        <div class="portfolio-img"><img src="images/lua.png"></div>
+                        <h2 class="portfolio-title">Lua Projects</h2>
+                        <p><a href="https://www.roblox.com/games/30594325/Roblox-Classic-Gamestop-Tycoon" target="_blank">★ Gamestop Tycoon</a></p>
+                        <p><a href="https://www.roblox.com/games/14626271/Roblox-Classic-Mcdonald-Tycoon" target="_blank">• Fast Food Tycoon</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--#######################################################################################################-->
+        <div class="section">
+            <div id="contactsection" data-anchor="contactpage">
+                <h1>Intrigued? Lets chat.</h1>
+                <h2>We may have common intrests.</h2>
+                <div class="sociallinks">
+                    <a style="margin-bottom: 1.5625em; margin-top: 150px" href="https://twitter.com/" target="_blank" class="twitter" data-bypass=""><i class="?"></i><span>Twittter</span></a><br>
+                    <a style="margin-bottom: 1.5625em" href="https://medium.com/" target="_blank" class="medium" data-bypass=""><i class="?"></i><span>Medium</span></a><br>
+                    <a style="margin-bottom: 1.5625em" href="http://instagram.com/" target="_blank" class="instagram" data-bypass=""><i class="?"></i><span>Instagram</span></a><br>
+                    <a style="margin-bottom: 1.5625em" href="http://dribbble.com/" target="_blank" class="dribbble" data-bypass=""><i class="?"></i><span>Dribbble</span></a><br>
+                    <a style="margin-bottom: 1.5625em" href="https://angel.co/" target="_blank" class="angellist" data-bypass=""><i class="?"></i><span>AngelList</span></a><br>
+                </div>
+            </div>
+        </div>
+<!--#######################################################################################################-->
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+    $('#fullpage').fullpage({
+        //Navigation
+        menu: '#menu',
+        lockAnchors: false,
+        anchors:['homepage', 'aboutpage', 'portfoliopage', 'contactpage'],
+        navigation: true,
+        navigationPosition: 'right',
+        navigationTooltips: ['Home', 'About', 'Portfolio', 'Contact'],
+        showActiveTooltip: false,
+        slidesNavigation: true,
+        slidesNavPosition: 'bottom',
+
+        //Scrolling
+        css3: true,
+        scrollingSpeed: 500,
+        autoScrolling: true,
+        fitToSection: true,
+        fitToSectionDelay: 1000,
+        scrollBar: false,
+        easing: 'easeInOutCubic',
+        easingcss3: 'ease',
+        loopBottom: true,
+        loopTop: false,
+        loopHorizontal: true,
+        continuousVertical: false,
+        continuousHorizontal: false,
+        scrollHorizontally: false,
+        interlockedSlides: false,
+        dragAndMove: false,
+        offsetSections: false,
+        resetSliders: false,
+        fadingEffect: false,
+        normalScrollElements: '#element1, .element2',
+        scrollOverflow: false,
+        scrollOverflowOptions: null,
+        touchSensitivity: 15,
+        normalScrollElementTouchThreshold: 5,
+        bigSectionsDestination: null,
+
+        //Accessibility
+        keyboardScrolling: true,
+        animateAnchor: false,
+        recordHistory: false,
+
+        //Design
+        controlArrows: true,
+        verticalCentered: true,
+        sectionsColor : ['#ccc', '#fff'],
+        paddingTop: '0em',
+        paddingBottom: '0px',
+        fixedElements: '#header, .footer',
+        responsiveWidth: 700,
+        responsiveHeight: 700,
+        responsiveSlides: true,
+
+        //Custom selectors
+        sectionSelector: '.section',
+        slideSelector: '.slide',
+
+        lazyLoading: true,
+
+        //events
+        onLeave: function(index, nextIndex, direction){},
+        afterLoad: function(anchorLink, index){},
+        afterRender: function(){},
+        afterResize: function(){},
+        afterResponsive: function(isResponsive){},
+        afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+        onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
+    });
+});
+</script>
+</html>
