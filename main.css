@@ -95,8 +95,8 @@ a:active {
     position: absolute; 
     top: 50%; 
     left: 50%; 
-    margin-top: 12.5em; 
-    margin-left: -15.625em;
+    margin-top: 200px; /* 12.5 */
+    margin-left: -250px; /* -15.625em */
 }
 #navbar {
     width:100%;
