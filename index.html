@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Jemar Macaraeg Jr.</title>
   <!--<link rel="stylesheet" href="NONE.css"> <!--MainCSS-->
+  <link rel="manifest" href="manifest.json">
   <script src="jquery-3.1.1.js"></script>  <!--JQuery-->
   <script src="jquery.fullPage.min.js"></script> <!--FullPage-->
   <link rel="stylesheet" href="main.css">
@@ -102,7 +103,7 @@ var TxtType = function(el, toRotate, period) {
 #homesection {
     background-color: black;
     position:relative;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
     display:inline-block;
     margin: auto;
@@ -112,11 +113,11 @@ var TxtType = function(el, toRotate, period) {
 }
 #homelogo {
     position: absolute; 
-    margin-top: -200px; /* -17.1875 */
-    margin-left: 200px; /* 12 */
+    margin-top: 0px; /* -17.1875 */
+    margin-left: 0px; /* 12 */
 }
 #homelogo img {
-    opacity: .7; 
+    opacity: 0; 
 }
 .centered {
     width: 32%;
@@ -194,12 +195,10 @@ var TxtType = function(el, toRotate, period) {
 </style>
 
 <body>
-    <div id="fullpage">
 <!--#######################################################################################################-->
 <!-- 
 Notes:
 SVG Image https://css-tricks.com/using-svg/
-If SVG no work: <img src="image.svg" onerror="this.onerror=null; this.src='image.png'">
 FUCK PX GO EM: http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/
 
 Learn:
@@ -216,6 +215,7 @@ document.write(html);
 
 <img class="vid blur fade" src="images/city2.jpg">
 -->
+    <div id="fullpage">
         <div class="section">
             <div id="homesection" data-anchor="homepage">
                 <div id="homebackground" class="fade">
@@ -231,8 +231,7 @@ document.write(html);
                     <hr/>
                         <h1>Jemar<span style="font-weight: 400;"><br>Macaraeg</span></h1>
                         <h2><span class="typewrite" data-period="2000" data-type='[ "Student &middot; Programmer &middot; Entrepreneur", "Mentor &middot; Seeker &middot; Risk-taker", "Autodidact &middot; Individualist &middot; Capitalist" ]'><span class="wrap"></span>
-                        </span>
-                        </h2>
+                        </span></h2>
                     <hr/>
                 </div>
 
